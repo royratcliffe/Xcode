@@ -1,16 +1,15 @@
+// «PROJECTNAME» «FILENAME»
 //
-//  «FILENAME»
-//  «PROJECTNAME»
+// Copyright © «YEAR», «FULLUSERNAME», «ORGANIZATIONNAME»
+// All rights reserved
 //
-//  Created by «FULLUSERNAME» on «DATE».
-//  Copyright «YEAR» «ORGANIZATIONNAME». All rights reserved.
-//
+//------------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
 
-
-@interface «FILEBASENAMEASIDENTIFIER» : NSObject {
-
+@interface «FILEBASENAMEASIDENTIFIER» : NSObject
+{
+	
 }
 
 @end
