@@ -1,0 +1,4 @@
+{
+	MainTemplateFile = "header.h";
+	Description = "An empty header file.";
+}

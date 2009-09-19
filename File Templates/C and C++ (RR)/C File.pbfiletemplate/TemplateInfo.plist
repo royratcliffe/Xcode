@@ -1,0 +1,5 @@
+{
+	MainTemplateFile = "file.c";
+	CounterpartTemplateFile = "file.h";
+	Description = "A C file, with an optional header file.";
+}
