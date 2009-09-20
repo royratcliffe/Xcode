@@ -24,7 +24,6 @@
 //------------------------------------------------------------------------------
 
 «OPTIONALHEADERIMPORTLINE»
-
 @implementation «FILEBASENAMEASIDENTIFIER»
 
 @end
