@@ -1,0 +1,17 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objects = {
+
+/* Begin XCOrganizer section */
+		782B125210613CDA00ACB7D4 /* XCOrganizer */ = {
+			isa = XCOrganizer;
+			organizerItems = (
+			);
+		};
+/* End XCOrganizer section */
+	};
+	rootObject = 782B125210613CDA00ACB7D4 /* XCOrganizer */;
+}
