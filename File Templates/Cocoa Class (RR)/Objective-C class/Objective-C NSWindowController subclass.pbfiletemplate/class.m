@@ -27,7 +27,7 @@
 @implementation «FILEBASENAMEASIDENTIFIER»
 
 //------------------------------------------------------------------------------
-#pragma mark                                                         Nib Loading
+#pragma mark                                                         Nib loading
 //------------------------------------------------------------------------------
 
 - (void)windowDidLoad
