@@ -131,7 +131,7 @@
             BasedOn = objc;
             IsMenuItem = YES;
             Name = "init Definition";
-            TextString = "-$(PreMethodTypeSpacing)(id)$(PreMethodDeclSpacing)init$(FunctionBlockSeparator){\n\tself = [super init];\n\tif$(PreExpressionsSpacing)($(InExpressionsSpacing)self != nil$(InExpressionsSpacing))$(BlockSeparator){\n\t\t<#!initializations!#>\n\t}\n\treturn self;\n}\n";
+            TextString = "-$(PreMethodTypeSpacing)(id)$(PreMethodDeclSpacing)init$(FunctionBlockSeparator){\n\tself = [super init];\n\tif$(PreExpressionsSpacing)($(InExpressionsSpacing)self != nil$(InExpressionsSpacing))\n\t{\n\t\t<#!initializations!#>\n\t}\n\treturn self;\n}\n";
             CompletionPrefix = init;
             OnlyAtBOL = YES;
             IncludeContexts = ( "xcode.lang.objc.implementation" );
