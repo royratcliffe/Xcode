@@ -1,0 +1,50 @@
+/**
+    text macro specifications for text macro specification files
+
+    Copyright © 2004-2007 Apple Inc. All rights reserved.
+
+*/
+(
+    {
+        Identifier = macro;
+        Name = "Text macro specifications";
+        IsMenu = YES;
+        IncludeContexts = ( "xcode.lang.xctxtmacro" );
+    },
+
+        {
+            Identifier = macro.menu;
+            BasedOn = macro;
+            IsMenuItem = YES;
+            Name = "Top level menu";
+            TextString = "{\n\tIdentifier = <#id#>;\n\tName = \"<#name#>\";\n\tIsMenu = YES;\n\tIncludeContexts = ( <#languages#> );\n},\n";
+            CompletionPrefix = menu;
+        },
+
+        {
+            Identifier = macro.item;
+            BasedOn = macro;
+            IsMenuItem = YES;
+            Name = "Menu item";
+            TextString = "{\n\tIdentifier = <#id#>;\n\tBasedOn = <#parent#>;\n\tIsMenuItem = YES;\n\tName = \"<#name#>\";\n\tTextString = \"<#what to insert#>\";\n},\n";
+            CompletionPrefix = item;
+        },
+
+        {
+            Identifier = macro.completion;
+            BasedOn = macro;
+            IsMenuItem = YES;
+            Name = "Completion string";
+            TextString = "{\n\tIdentifier = <#id#>;\n\tBasedOn = <#parent#>;\n\tIsMenuItem = NO;\n\tName = \"<#name#>\";\n\tTextString = \"<#what to insert#>\";\n\tCompletionPrefix = <#prefix#>;\n},\n";
+            CompletionPrefix = completion;
+        },
+
+        {
+            Identifier = macro.completionitem;
+            BasedOn = macro;
+            IsMenuItem = YES;
+            Name = "Completion string / Menu item";
+            TextString = "{\n\tIdentifier = <#id#>;\n\tBasedOn = <#parent#>;\n\tIsMenuItem = YES;\n\tName = \"<#name#>\";\n\tTextString = \"<#what to insert#>\";\n\tCompletionPrefix = <#prefix#>;\n},\n";
+            CompletionPrefix = completionitem;
+        },
+)

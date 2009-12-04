@@ -1,0 +1,74 @@
+/**
+    text macro specifications for text macro specification files
+
+    Copyright © 2004-2007 Apple Inc. All rights reserved.
+    All rights reserved.
+
+*/
+(
+    {
+        Identifier = java;
+        Name = "Java";
+        IsMenu = YES;
+//        DefaultSettings = {
+//            PreExpressionsSpacing = " ";    // space between keyword and opening paren
+//            InExpressionsSpacing = "";      // space between paren and expression
+//            CaseStatementSpacing = "";      // indentation of a case statement
+//            BlockSeparator = " ";           // space between closing paren and brace (can include a newline)
+//            PostBlockSeparator = "\n";
+//        };
+        IncludeContexts = ( "xcode.lang.java" );
+    },
+
+        {
+            Identifier = java.try;
+            BasedOn = java;
+            IsMenuItem = YES;
+            Name = "Try / Catch Block";
+            TextString = "try$(BlockSeparator){\n\t<#!statements!#>\n}$(PostBlockSeparator)catch$(PreExpressionsSpacing)($(InExpressionsSpacing)<#exception#>$(InExpressionsSpacing))$(BlockSeparator){\n\t<#handler#>\n}$(PostBlockSeparator)finally$(BlockSeparator){\n\t<#statements#>\n}";
+            CompletionPrefix = try;
+            OnlyAtBOL = YES;
+        },
+        
+        {
+            Identifier = java.catch;
+            BasedOn = java;
+            IsMenuItem = YES;
+            Name = "Catch Block";
+            TextString = "catch$(PreExpressionsSpacing)($(InExpressionsSpacing)<#exception#>$(InExpressionsSpacing))$(BlockSeparator){\n\t<#!handler!#>\n}";
+            CompletionPrefix = catch;
+            OnlyAtBOL = YES;
+        },
+        
+        {
+            Identifier = java.finally;
+            BasedOn = java;
+            IsMenuItem = YES;
+            Name = "Finally Block";
+            TextString = "finally$(BlockSeparator){\n\t<#!handler!#>\n}";
+            CompletionPrefix = finally;
+            OnlyAtBOL = YES;
+        },
+        
+        {
+            Identifier = java.println;
+            BasedOn = java;
+            IsMenuItem = YES;
+            Name = "Println() Call";
+            TextString = "System.out.println$(PreFunctionArgsSpacing)($(InFunctionArgsSpacing)\"<#message#>\"$(InFunctionArgsSpacing));";
+            CompletionPrefix = println;
+            OnlyAtBOL = YES;
+        },
+
+        {
+            Identifier = java.synchronized;
+            BasedOn = java;
+            IsMenuItem = YES;
+            Name = "Synchronized Block";
+            TextString = "synchronized$(PreExpressionsSpacing)(<#lock_object#>)$(BlockSeparator){\n\t<#!statements!#>\n}";
+            CompletionPrefix = synchronized;
+            OnlyAtBOL = YES;
+        },
+        
+    
+)

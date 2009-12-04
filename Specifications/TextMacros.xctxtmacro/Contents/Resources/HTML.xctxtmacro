@@ -1,0 +1,244 @@
+/**
+    HTML text macro specifications
+
+    Copyright © 2004-2007 Apple Inc. All rights reserved.
+
+*/
+(
+    {
+        Identifier = html;
+        Name = "HTML";
+        IsMenu = YES;
+        IncludeContexts = ( "xcode.lang.html" );
+    },
+        {
+            Identifier = html.formatter;
+            BasedOn = html;
+            TextString = "<$(Tag)><#!text!#></$(Tag)>";
+        },
+            {
+                Identifier = html.formatter.bold;
+                BasedOn = html.formatter;
+                Name = "Bold";
+                IsMenuItem = YES;
+                Tag = "b";
+                CompletionPrefix = b;
+            },
+            {
+                Identifier = html.formatter.italics;
+                BasedOn = html.formatter;
+                Name = "Italics";
+                IsMenuItem = YES;
+                Tag = "i";
+                CompletionPrefix = i;
+            },
+            {
+                Identifier = html.formatter.underline;
+                BasedOn = html.formatter;
+                Name = "Underline";
+                IsMenuItem = YES;
+                Tag = "u";
+                CompletionPrefix = u;
+            },
+            {
+                Identifier = html.formatter.bigger;
+                BasedOn = html.formatter;
+                Name = "Bigger";
+                IsMenuItem = YES;
+                Tag = "big";
+                CompletionPrefix = big;
+            },
+            {
+                Identifier = html.formatter.smaller;
+                BasedOn = html.formatter;
+                Name = "Smaller";
+                IsMenuItem = YES;
+                Tag = "small";
+                CompletionPrefix = small;
+            },
+            {
+                Identifier = html.formatter.title;
+                BasedOn = html.formatter;
+                Name = "Title";
+                IsMenuItem = YES;
+                Tag = "title";
+                CompletionPrefix = title;
+            },
+            {
+                Identifier = html.formatter.strikethrough;
+                BasedOn = html.formatter;
+                Name = "Strikethrough";
+                IsMenuItem = YES;
+                Tag = "strike";
+                CompletionPrefix = strike;
+            },
+            {
+                Identifier = html.formatter.subscript;
+                BasedOn = html.formatter;
+                Name = "Subscript";
+                IsMenuItem = YES;
+                Tag = "sub";
+                CompletionPrefix = sub;
+            },
+            {
+                Identifier = html.formatter.superscript;
+                BasedOn = html.formatter;
+                Name = "Superscript";
+                IsMenuItem = YES;
+                Tag = "sup";
+                CompletionPrefix = sup;
+            },
+            {
+                Identifier = html.formatter.tt;
+                BasedOn = html.formatter;
+                Name = "Typewriter Text";
+                IsMenuItem = YES;
+                Tag = "tt";
+                CompletionPrefix = tt;
+            },
+            {
+                Identifier = html.formatter.code;
+                BasedOn = html.formatter;
+                Name = "Code";
+                IsMenuItem = YES;
+                Tag = "code";
+                CompletionPrefix = code;
+            },
+            {
+                Identifier = html.formatter.center;
+                BasedOn = html.formatter;
+                Name = "Center";
+                IsMenuItem = YES;
+                Tag = "center";
+                CompletionPrefix = center;
+            },
+            {
+                Identifier = html.formatter.heading;
+                BasedOn = html.formatter;
+                Name = "Heading";
+                IsMenuItem = YES;
+                Tag = "h1";
+                CycleList = (
+                    html.formatter.heading,
+                    html.formatter.heading.h2,
+                    html.formatter.heading.h3,
+                    html.formatter.heading.h4,
+                    html.formatter.heading.h5,
+                    html.formatter.heading.h6
+                );
+            },
+            {
+                Identifier = html.formatter.heading.h1;
+                BasedOn = html.formatter;
+                Name = "Heading 1";
+                Tag = "h1";
+                CompletionPrefix = h1;
+            },
+            {
+                Identifier = html.formatter.heading.h2;
+                BasedOn = html.formatter;
+                Name = "Heading 2";
+                Tag = "h2";
+                CompletionPrefix = h2;
+            },
+            {
+                Identifier = html.formatter.heading.h3;
+                BasedOn = html.formatter;
+                Name = "Heading 3";
+                Tag = "h3";
+                CompletionPrefix = h3;
+            },
+            {
+                Identifier = html.formatter.heading.h4;
+                BasedOn = html.formatter;
+                Name = "Heading 4";
+                Tag = "h4";
+                CompletionPrefix = h4;
+            },
+            {
+                Identifier = html.formatter.heading.h5;
+                BasedOn = html.formatter;
+                Name = "Heading 5";
+                Tag = "h5";
+                CompletionPrefix = h5;
+            },
+            {
+                Identifier = html.formatter.heading.h6;
+                BasedOn = html.formatter;
+                Name = "Heading 6";
+                Tag = "h6";
+                CompletionPrefix = h6;
+            },
+        {
+            Identifier = html.hr;
+            BasedOn = html;
+            Name = "Horizontal rule";
+            IsMenuItem = YES;
+            Text = "<hr>\n";
+            CompletionPrefix = hr;
+        },
+        {
+            Identifier = html.link;
+            BasedOn = html;
+            TextString = "<$(Tag)$(Args)><#!text!#></$(Tag)>";
+        },
+            {
+                Identifier = html.link.href;
+                BasedOn = html.link;
+                Name = "Link";
+                IsMenuItem = YES;
+                Tag = "a";
+                Args = " href=\"<#url#>\"";
+                CycleList = (
+                    html.link.href,
+                    html.link.href.anchor,
+                    html.link.href.target,
+                );
+                CompletionPrefix = a;
+            },
+                {
+                    Identifier = html.link.href.target;
+                    BasedOn = html.link.href;
+                    Name = "Link With Target";
+                    Args = "$(Args) target=\"<#target#>\"";
+                    CompletionPrefix = at;
+                },
+                {
+                    Identifier = html.link.href.anchor;
+                    BasedOn = html.link.href;
+                    Name = "Anchor";
+                    IsMenuItem = YES;
+                    Args = "$(Args) name=\"<#anchor#>\"";
+                    CompletionPrefix = aa;
+                },
+        {
+            Identifier = html.list;
+            BasedOn = html;
+            TextString = "<$(Tag)>\n\t$(ListItem)\n</$(Tag)>";
+            ListItem = "<li><#!item!#></li>";
+        },
+            {
+                Identifier = html.list.ordered;
+                BasedOn = html.list;
+                Name = "Ordered List";
+                IsMenuItem = YES;
+                Tag = "ol";
+                CompletionPrefix = ol;
+            },
+            {
+                Identifier = html.list.unordered;
+                BasedOn = html.list;
+                Name = "Unordered List";
+                IsMenuItem = YES;
+                Tag = "ul";
+                CompletionPrefix = ul;
+            },
+            {
+                Identifier = html.list.item;
+                BasedOn = html.list;
+                Name = "List Item";
+                IsMenuItem = YES;
+                TextString = "$(ListItem)";
+                CompletionPrefix = li;
+            },
+)

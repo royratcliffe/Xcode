@@ -1,0 +1,305 @@
+/**
+    Objective C text macro specifications
+
+    Copyright © 2004-2007 Apple Inc. All rights reserved.
+
+*/
+
+(
+    //
+    // Objective-C language macros (they also show up for Objective-C++)
+    //
+    {
+        Identifier = objc;
+        Name = "Objective-C";
+        IsMenu = YES;
+// Can be set (for all languages) with the XCCodeSenseFormattingOptions user default
+//        DefaultSettings = {
+//            PreExpressionsSpacing = " ";
+//            InExpressionsSpacing = "";
+//            BlockSeparator = " ";
+//            PostBlockSeparator = "\n";
+//        };
+        IncludeContexts = ( "xcode.lang.objc" );
+        ExcludeContexts = ( "xcode.lang.string", "xcode.lang.character", "xcode.lang.comment", "xcode.lang.c.preprocessor" );
+    },
+
+        {
+            Identifier = objc.try;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Try / Catch Block";
+            TextString = "@try$(BlockSeparator){\n\t<#!statements!#>\n}$(PostBlockSeparator)@catch$(PreExpressionsSpacing)($(InExpressionsSpacing)NSException * e$(InExpressionsSpacing))$(BlockSeparator){\n\t<#handler#>\n}$(PostBlockSeparator)@finally$(BlockSeparator){\n\t<#statements#>\n}";
+            CompletionPrefix = "@try";
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+        
+        {
+            Identifier = objc.catch;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Catch Block";
+            TextString = "@catch$(PreExpressionsSpacing)($(InExpressionsSpacing)<#exception#>$(InExpressionsSpacing))$(BlockSeparator){\n\t<#!handler!#>\n}";
+            CompletionPrefix = "@catch";
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.finally;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Finally Block";
+            TextString = "@finally$(BlockSeparator){\n\t<#!handler!#>\n}";
+            CompletionPrefix = "@finally";
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.log;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "NSLog() Call";
+            TextString = "NSLog$(PreFunctionArgsSpacing)($(InFunctionArgsSpacing)@\"<#message#>\"$(InFunctionArgsSpacing));";
+            CompletionPrefix = log;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.bracket;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Bracket Expression";
+            TextString = "[<#!expression!#> ]";
+        },
+
+        {
+            Identifier = objc.allocinit;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Alloc / Init Call";
+            TextString = "[[<#!class!#> alloc] init]";
+            CompletionPrefix = a;
+        },
+
+        {
+            Identifier = objc.array;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Array Declaration";
+            TextString = "NSArray * array;";
+            CompletionPrefix = aa;
+        },
+
+        {
+            Identifier = objc.mutablearray;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Mutable Array Declaration";
+            TextString = "NSMutableArray * array;";
+            CompletionPrefix = ma;
+        },
+        
+        {
+            Identifier = objc.arrayiteration;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Array For Loop";
+            TextString = "NSUInteger i, count = [<#array#> count];\nfor$(PreExpressionsSpacing)($(InExpressionsSpacing)i = 0; i < count; i++$(InExpressionsSpacing))$(BlockSeparator){\n\tNSObject * obj = [<#array#> objectAtIndex:i];\n\t<#!statements!#>\n}";
+            CompletionPrefix = fora;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+        
+        {
+            Identifier = objc.arrayiteration.foreach;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "Array Foreach Loop";
+            TextString = "for$(PreExpressionsSpacing)($(InExpressionsSpacing)<#object#> in <#array#>$(InExpressionsSpacing))$(BlockSeparator){\n\t<#!statements!#>\n}";
+            CompletionPrefix = fore;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.block" );
+        },
+        
+// MARK: methods templates
+        {
+            Identifier = objc.init;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "init Definition";
+            TextString = "-$(PreMethodTypeSpacing)(id)$(PreMethodDeclSpacing)init$(FunctionBlockSeparator){\n\tself = [super init];\n\tif$(PreExpressionsSpacing)($(InExpressionsSpacing)self != nil$(InExpressionsSpacing))$(BlockSeparator){\n\t\t<#!initializations!#>\n\t}\n\treturn self;\n}\n";
+            CompletionPrefix = init;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.implementation" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+        
+        {
+            Identifier = objc.dealloc;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "dealloc Definition";
+            TextString = "-$(PreMethodTypeSpacing)(void)$(PreMethodDeclSpacing)dealloc$(FunctionBlockSeparator){\n\t<#!deallocations!#>\n\t[super dealloc];\n}\n";
+            CompletionPrefix = dealloc;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.implementation" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.observe;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "observeValueForKeyPath: Definition";
+            TextString =
+"-$(PreMethodTypeSpacing)(void)$(PreMethodDeclSpacing)observeValueForKeyPath$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)keyPath ofObject$(PreColonSpacing):$(PostColonSpacing)(id)$(MessageArgSpacing)object change$(PreColonSpacing):$(PostColonSpacing)(NSDictionary *)$(MessageArgSpacing)change context$(PreColonSpacing):$(PostColonSpacing)(void *)$(MessageArgSpacing)context$(FunctionBlockSeparator){
+    if$(PreExpressionsSpacing)($(InExpressionsSpacing)context == <#context#>$(InExpressionsSpacing))$(BlockSeparator){
+		<#work#>
+	}$(PostBlockSeparator)\telse$(BlockSeparator){
+		[$(InMessageSpacing)super observeValueForKeyPath$(PreColonSpacing):$(PostColonSpacing)keyPath ofObject$(PreColonSpacing):$(PostColonSpacing)object change$(PreColonSpacing):$(PostColonSpacing)change context$(PreColonSpacing):$(PostColonSpacing)context$(InMessageSpacing)];
+	}
+}
+";
+            CompletionPrefix = observeValueForKeyPath;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.implementation" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.observe.decl;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "observeValueForKeyPath: Declaration";
+            TextString = "-$(PreMethodTypeSpacing)(void)$(PreMethodDeclSpacing)observeValueForKeyPath$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)keyPath ofObject$(PreColonSpacing):$(PostColonSpacing)(id)$(MessageArgSpacing)object change$(PreColonSpacing):$(PostColonSpacing)(NSDictionary *)$(MessageArgSpacing)change context$(PreColonSpacing):$(PostColonSpacing)(void *)$(MessageArgSpacing)context;\n";
+            CompletionPrefix = observeValueForKeyPath;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.interface" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.bind;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "bind: Definition";
+            TextString =
+"-$(PreMethodTypeSpacing)(void)$(PreMethodDeclSpacing)bind$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)binding toObject$(PreColonSpacing):$(PostColonSpacing)(id)$(MessageArgSpacing)observable withKeyPath$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)keyPath options$(PreColonSpacing):$(PostColonSpacing)(NSDictionary *)$(MessageArgSpacing)options$(FunctionBlockSeparator){
+	if$(PreExpressionsSpacing)($(InExpressionsSpacing)[$(InMessageSpacing)binding isEqualToString$(PreColonSpacing):$(PostColonSpacing)<#bindingName#>$(InMessageSpacing)]$(InExpressionsSpacing))$(BlockSeparator){
+		[$(InMessageSpacing)observable addObserver$(PreColonSpacing):$(PostColonSpacing)self forKeyPath$(PreColonSpacing):$(PostColonSpacing)keyPath options$(PreColonSpacing):$(PostColonSpacing)0 context$(PreColonSpacing):$(PostColonSpacing)<#context#>$(InMessageSpacing)];
+		<#store binding info#>
+	}$(PostBlockSeparator)\telse$(BlockSeparator){
+		[$(InMessageSpacing)super bind$(PreColonSpacing):$(PostColonSpacing)binding toObject$(PreColonSpacing):$(PostColonSpacing)observable withKeyPath$(PreColonSpacing):$(PostColonSpacing)keyPath options$(PreColonSpacing):$(PostColonSpacing)options$(InMessageSpacing)];
+	}
+}
+";
+            CompletionPrefix = bind;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.implementation" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+        {
+            Identifier = objc.observe.bind;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "bind: Declaration";
+            TextString = "-$(PreMethodTypeSpacing)(void)$(PreMethodDeclSpacing)bind$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)binding toObject$(PreColonSpacing):$(PostColonSpacing)(id)$(MessageArgSpacing)observable withKeyPath$(PreColonSpacing):$(PostColonSpacing)(NSString *)$(MessageArgSpacing)keyPath options$(PreColonSpacing):$(PostColonSpacing)(NSDictionary *)$(MessageArgSpacing)options;\n";
+            CompletionPrefix = bind;
+            OnlyAtBOL = YES;
+            IncludeContexts = ( "xcode.lang.objc.interface" );
+            ExcludeContexts = ( "xcode.lang.objc.block" );
+        },
+
+
+// MARK: classes and protocols
+
+        {
+            Identifier = objc.interface;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "@interface Definition";
+            TextString = "@interface <#class#> : <#superclass#>$(FunctionBlockSeparator){\n\t<#ivars#>\n}\n\n<#methods#>\n\n@end\n";
+            CompletionPrefix = "@interface";
+            OnlyAtBOL = YES;
+            ExcludeContexts = ( "xcode.lang.objc.implementation", "xcode.lang.objc.interface", "xcode.lang.objc.protocol" );
+        },
+
+        {
+            Identifier = objc.implementation;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "@implementation Definition";
+            TextString = "@implementation <#class#>\n\n<#methods#>\n\n@end\n";
+            CompletionPrefix = "@implementation";
+            OnlyAtBOL = YES;
+            ExcludeContexts = ( "xcode.lang.objc.implementation", "xcode.lang.objc.interface", "xcode.lang.objc.protocol" );
+        },
+
+        {
+            Identifier = objc.protocol;
+            BasedOn = objc;
+            IsMenuItem = YES;
+            Name = "@protocol Definition";
+            TextString = "@protocol <#protocol#>\n\n<#methods#>\n\n@end\n";
+            CompletionPrefix = "@protocol";
+            OnlyAtBOL = YES;
+            ExcludeContexts = ( "xcode.lang.objc.implementation", "xcode.lang.objc.interface", "xcode.lang.objc.protocol" );
+        },
+
+
+
+// MARK: Common Class shorthands
+        {
+            Identifier = objc.nss;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSString";
+            TextString = "NSString";
+            CompletionPrefix = nss;
+        },
+        {
+            Identifier = objc.nsms;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSMutableString";
+            TextString = "NSMutableString";
+            CompletionPrefix = nsms;
+        },
+        {
+            Identifier = objc.nsa;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSArray";
+            TextString = "NSArray";
+            CompletionPrefix = nsa;
+        },
+        {
+            Identifier = objc.nsma;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSMutableArray";
+            TextString = "NSMutableArray";
+            CompletionPrefix = nsma;
+        },
+        {
+            Identifier = objc.nsd;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSDictionary";
+            TextString = "NSDictionary";
+            CompletionPrefix = nsd;
+        },
+        {
+            Identifier = objc.nsmd;
+            BasedOn = objc;
+            IsMenuItem = NO;
+            Name = "NSMutableDictionary";
+            TextString = "NSMutableDictionary";
+            CompletionPrefix = nsmd;
+        },
+)
