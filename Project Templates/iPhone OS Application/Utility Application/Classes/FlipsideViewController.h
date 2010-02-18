@@ -34,7 +34,7 @@
 
 @property(nonatomic, assign) id<FlipsideViewControllerDelegate> delegate;
 
-- (IBAction)finish:sender;
+- (IBAction)finish;
 
 @end
 

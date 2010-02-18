@@ -29,7 +29,7 @@
 
 @synthesize delegate;
 
-- (IBAction)finish:sender
+- (IBAction)finish
 {
 	[self.delegate flipsideViewControllerDidFinish:self];
 }
@@ -43,12 +43,6 @@
 		// before the view loads.
 	}
 	return self;
-}
-
-- (void)loadView
-{
-	// This is where subclasses should create their custom view hierarchy if
-	// they aren't using a nib. Should never be called directly.
 }
 
 - (void)viewDidLoad

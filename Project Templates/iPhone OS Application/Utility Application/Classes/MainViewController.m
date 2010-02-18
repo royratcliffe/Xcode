@@ -27,7 +27,7 @@
 
 @implementation MainViewController
 
-- (IBAction)presentFlipsideView:sender
+- (IBAction)presentFlipsideView
 {
 	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
@@ -50,12 +50,6 @@
 		// before the view loads.
 	}
 	return self;
-}
-
-- (void)loadView
-{
-	// This is where subclasses should create their custom view hierarchy if
-	// they aren't using a nib. Should never be called directly.
 }
 
 - (void)viewDidLoad

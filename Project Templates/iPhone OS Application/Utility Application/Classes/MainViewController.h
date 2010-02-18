@@ -30,6 +30,6 @@
 	
 }
 
-- (IBAction)presentFlipsideView:sender;
+- (IBAction)presentFlipsideView;
 
 @end
