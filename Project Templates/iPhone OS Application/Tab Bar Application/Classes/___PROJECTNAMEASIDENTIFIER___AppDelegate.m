@@ -1,4 +1,4 @@
-// ___PROJECTNAME___ ___FILENAME___
+// ___PROJECTNAME___ ___PROJECTNAMEASIDENTIFIER___AppDelegate.m
 //
 // Copyright © ___YEAR___, ___FULLUSERNAME___, ___ORGANIZATIONNAME___
 // All rights reserved
