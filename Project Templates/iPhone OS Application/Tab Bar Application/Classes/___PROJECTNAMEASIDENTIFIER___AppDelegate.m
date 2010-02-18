@@ -1,6 +1,6 @@
-// «PROJECTNAME» «FILENAME»
+// ___PROJECTNAME___ ___FILENAME___
 //
-// Copyright © «YEAR», «FULLUSERNAME», «ORGANIZATIONNAME»
+// Copyright © ___YEAR___, ___FULLUSERNAME___, ___ORGANIZATIONNAME___
 // All rights reserved
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
