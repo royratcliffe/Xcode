@@ -89,7 +89,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">done</string>
+						<string key="label">finish</string>
 						<reference key="source" ref="854562692"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
@@ -208,7 +208,7 @@
 					<string key="className">FlipsideViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">done</string>
+						<string key="NS.key.0">finish</string>
 						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
