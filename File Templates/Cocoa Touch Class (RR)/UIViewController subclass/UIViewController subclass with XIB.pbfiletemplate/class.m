@@ -37,12 +37,6 @@
 	return self;
 }
 
-- (void)loadView
-{
-	// This is where subclasses should create their custom view hierarchy if
-	// they aren't using a nib. Should never be called directly.
-}
-
 - (void)viewDidLoad
 {
 	// Called after the view has been loaded. For view controllers created in
