@@ -1,45 +1,63 @@
+// «PROJECTNAME» «FILENAME»
 //
-//  ___PROJECTNAMEASIDENTIFIER___AppDelegate.m
-//  ___PROJECTNAME___
+// Copyright © «YEAR», «FULLUSERNAME», «ORGANIZATIONNAME»
+// All rights reserved
 //
-//  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+//	The above copyright notice and this permission notice shall be included in
+//	all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EITHER
+// EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO
+// EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+// OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+//
+//------------------------------------------------------------------------------
 
 #import "___PROJECTNAMEASIDENTIFIER___AppDelegate.h"
-
 
 @implementation ___PROJECTNAMEASIDENTIFIER___AppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
 
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-    
-    // Add the tab bar controller's current view as a subview of the window
-    [window addSubview:tabBarController.view];
+- (void)dealloc
+{
+	[tabBarController release];
+	[window release];
+	[super dealloc];
 }
 
+//------------------------------------------------------------------------------
+#pragma mark                                             UI Application Delegate
+//------------------------------------------------------------------------------
 
-/*
-// Optional UITabBarControllerDelegate method
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+	[window addSubview:tabBarController.view];
 }
-*/
 
-/*
-// Optional UITabBarControllerDelegate method
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed {
+//------------------------------------------------------------------------------
+#pragma mark                                      UI Tab Bar Controller Delegate
+//------------------------------------------------------------------------------
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+	
 }
-*/
 
-
-- (void)dealloc {
-    [tabBarController release];
-    [window release];
-    [super dealloc];
+- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+{
+	
 }
 
 @end
-
