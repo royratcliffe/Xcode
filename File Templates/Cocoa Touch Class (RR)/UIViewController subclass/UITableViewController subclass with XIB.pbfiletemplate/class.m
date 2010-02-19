@@ -156,7 +156,7 @@
 	switch (editingStyle)
 	{
 		case UITableViewCellEditingStyleDelete:
-			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 			break;
 		case UITableViewCellEditingStyleInsert:
 			break;
