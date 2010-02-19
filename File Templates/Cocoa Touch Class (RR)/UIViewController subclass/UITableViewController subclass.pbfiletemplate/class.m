@@ -149,6 +149,7 @@
 	// Allows the reorder accessory view to optionally be shown for a particular
 	// row. By default, the reorder control will be shown only if the datasource
 	// implements -tableView:moveRowAtIndexPath:toIndexPath:.
+	return YES;
 }
 
 //------------------------------------------------------------ data manipulation
@@ -192,3 +193,5 @@
 	//	[anotherViewController release];
 	//
 }
+
+@end
