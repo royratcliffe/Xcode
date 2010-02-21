@@ -125,7 +125,7 @@
 	return cell;
 }
 
-//--------------------------------------------------------------------- optional
+// optional
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
